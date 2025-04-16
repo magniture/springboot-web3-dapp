@@ -1,0 +1,124 @@
+# 开发环境配置
+server:
+  # 服务器的HTTP端口，默认为8080
+  port: 7070
+  servlet:
+    # 应用的访问路径
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认为200
+    threads:
+      max: 800
+      min-spare: 30
+#     Tomcat启动初始化的线程数，默认值25
+#  ssl:
+#    key-store: classpath:7621744_www.sunyoki.com.pfx
+#    key-store-type: PKCS12
+#    key-store-password: NPM5lJv6
+#    enabled: true
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.sunyoki: info
+    org.springframework: info
+    com.baomidou: info
+    org:
+      web: ERROR
+    com.xxx.xxx.biz.mapper: debug
+
+
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  global-config:
+#    banner: false
+
+# Spring配置
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy:
+        ANT_PATH_MATCHER
+    view:
+      prefix: classpath:/templates
+      suffix: .html
+  thymeleaf:
+    cache: false
+  # 开启aop
+  aop:
+    auto: true
+
+  # 设置日期时间的格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  # 资源信息
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
+
+  profiles:
+    active: druid
+
+  # 文件上传
+  servlet:
+    multipart:
+      # 单个文件大小
+      max-file-size: 1024MB
+      # 设置总上传的文件大小
+      max-request-size: 10MB
+      #开启上传功能
+      enabled: true
+
+  # 服务模块
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true
+
+  datasource:
+    initialize: false
+
+# PageHelper分页插件
+page:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+# Swagger配置
+swagger:
+  # 是否开启swagger
+  enabled: true
+  # 请求前缀
+  pathMapping: /dev-api
+
+# 防止XSS攻击
+xss:
+  # 过滤开关
+  enabled: true
+  # 排除链接（多个用逗号分隔）
+  excludes: /system/notice/*
+  # 匹配链接
+  urlPatterns: /system/*,/monitor/*,/tool/*
+
+
+# MyBatis配置
+mybatis-plus:
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  configuration:
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true #禁用二级缓存、
+    local-cache-scope: session
+  #    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
