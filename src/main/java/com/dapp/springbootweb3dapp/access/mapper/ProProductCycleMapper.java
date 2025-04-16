@@ -1,5 +1,6 @@
 package com.dapp.springbootweb3dapp.access.mapper;
 
+import com.dapp.springbootweb3dapp.access.entity.ProProductCycle;
 import com.github.yulichang.base.MPJBaseMapper;
 
 /**

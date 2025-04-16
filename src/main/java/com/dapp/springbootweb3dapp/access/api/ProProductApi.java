@@ -2,6 +2,7 @@ package com.dapp.springbootweb3dapp.access.api;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.dapp.springbootweb3dapp.access.config.MeBaseServiceImpl;
 import com.dapp.springbootweb3dapp.access.entity.ProProduct;
 import com.dapp.springbootweb3dapp.access.mapper.ProProductMapper;
 import org.springframework.stereotype.Repository;
